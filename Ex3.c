@@ -17,17 +17,19 @@ typedef struct{
 int main(){
     static livre livres[10];
     char auteur[20];
+    int count;
+
 
     for(int i=0;i<10;i++){
         if(livres[i].annee_publication>2000){
-            printf("livre publiés après l année 2000.",livres[i]);
+            printf("livre publiés après l année 2000.",livres[i].titre, livres[i].auteur, 
+                livres[i].annee_publication);
         }
     }
 
     printf("entrer un auteur:");
     scanf("%s",auteur);
 
-    int count;
 
     for(int i=0;i<10;i++){
         if(strcmp(livres[i].auteur,auteur)==0){
@@ -35,7 +37,7 @@ int main(){
         }
     }
 
-    printf("le nombre des livres écrit par ce auteur est :%d",count);
+    printf("Nombre de livres écrits par cet auteur : %d\n", count);
     
 
 

@@ -14,27 +14,31 @@ Exemple d'exécution:
 Le caractère 'o' apparaît 2 fois.
 
 */
-#include <string.h>
-int count;
-int count_char_occurrences(char str[], char c){
-    for(int i=0;i<10;i++){
-        if(strcmp(str[i],c)==0){
+#include <stdio.h>
+
+int count_char_occurrences(char str[], char c) {
+    int count = 0;
+    for (int i = 0; str[i] != '\0'; i++) {  
+        if (str[i] == c) {
             count++;
         }
     }
+    return count;
 }
 
-int main(){
-    char str[10];
+int main() {
+    char str[100];
     char lettre;
 
-    printf("entrer une chaine de caractere :");
-    scanf("%c",&str);
+    printf("Entrer une chaine de caractere : ");
+    scanf(" %[^\n]", str);  
 
-    printf("lettre rechercher :");
-    scanf("%c",lettre);
+    printf("Lettre rechercher : ");
+    scanf(" %c", &lettre);  
 
-    int res=count_char_occurrences(str,lettre);
-    printf("Le caractère %c apparaît %d fois.",lettre,res);
+    int res = count_char_occurrences(str, lettre);
 
+    printf("Le caractere '%c' apparait %d fois.\n", lettre, res);
+
+    return 0;
 }
